@@ -1,0 +1,22 @@
+#!/bin/bash
+# Change wallpaper and generate matugen colors
+
+if [[ -z "$1" ]]; then
+    echo "Usage: wallpaper <path-to-image>"
+    exit 1
+fi
+
+IMAGE=$(realpath "$1")
+
+if [[ ! -f "$IMAGE" ]]; then
+    echo "Error: File not found: $IMAGE"
+    exit 1
+fi
+
+# Generate colors with matugen
+matugen image "$IMAGE" -v
+
+# Update hyprpaper via IPC
+hyprctl hyprpaper wallpaper ",${IMAGE}"
+
+echo "Wallpaper set to: $IMAGE"
