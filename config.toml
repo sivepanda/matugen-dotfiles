@@ -1,0 +1,41 @@
+[config]
+reload_apps = true
+reload_apps_list = { waybar = "killall -SIGUSR2 waybar" }
+
+[templates.waybar]
+input_path = "~/.config/matugen/templates/waybar.conf"
+output_path = "~/.config/waybar/style.css"
+post_hook = "pkill waybar && hyprctl dispatch exec waybar"
+
+[templates.hypr]
+input_path = "~/.config/matugen/templates/hypr-colors.conf"
+output_path = "~/.config/hypr/colors.conf"
+
+[templates.vicinae]
+input_path = "~/.config/matugen/templates/vicinae.toml"
+output_path = "~/.local/share/vicinae/themes/matugen.toml"
+post_hook = "vicinae theme set matugen"
+
+[templates.ghostty]
+input_path = "~/.config/matugen/templates/ghostty.conf"
+output_path = "~/.config/ghostty/matugen-colors"
+post_hook = "systemctl reload --user app-com.mitchellh.ghostty.service"
+
+[templates.tmux]
+input_path = "~/.config/matugen/templates/tmux.conf"
+output_path = "~/.config/tmux/matugen-colors.conf"
+post_hook = "tmux source-file ~/.tmux.conf"
+
+[templates.cava]
+input_path = "~/.config/matugen/templates/cava.conf"
+output_path = "~/.config/cava/config"
+
+[templates.spicetify]
+input_path = '~/.config/matugen/templates/spicetify.ini'
+output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
+post_hook = 'spicetify apply'
+
+[templates.vencord]
+input_path = '~/.config/matugen/templates/discord.css'
+output_path = '~/.var/app/com.discordapp.Discord/config/Vencord/themes/discord.css'
+post_hook = 'flatpak kill com.discordapp.Discord'
