@@ -33,9 +33,13 @@ output_path = "~/.config/cava/config"
 [templates.spicetify]
 input_path = '~/.config/matugen/templates/spicetify.ini'
 output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
-post_hook = 'spicetify apply'
+post_hook = 'spicetify refresh'
 
 [templates.vencord]
 input_path = '~/.config/matugen/templates/discord.css'
 output_path = '~/.var/app/com.discordapp.Discord/config/Vencord/themes/discord.css'
 post_hook = 'flatpak kill com.discordapp.Discord'
+
+[templates.obsidian]
+input_path = '~/.config/matugen/templates/theme.css'
+output_path = '~/Documents/Obsidian Vault/.obsidian/snippets/theme.css'
